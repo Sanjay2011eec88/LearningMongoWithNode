@@ -14,18 +14,18 @@ const assert = require('assert');
 const User = require('../src/user');
 
 describe('Creating records',()=>{
-    it('saves a user', () =>{
+    it('saves a user', (done) =>{
 
         /*User model represents all the collection
         * joe is model instace of User model
         *
         * the below line doesn't save data
         * */
-        const joe = new User({name:'Joe'})
+        const joe = new User({name:'Joe'});
 
         //To save data
         joe.save()
-            .then((done)=>{
+            .then(()=>{
             //Has joe been saved successfully?
                 /*
                 * joe.isNew will be true when it is in nodejs memory

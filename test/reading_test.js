@@ -9,7 +9,7 @@ describe('Reading user out of database',() => {
             .then(() => done());
     });
 
-    it('finds all user with name of joe',() =>{
+    it('finds all user with name of joe',(done) =>{
         User.find({name:'Joe'})
             .then((users) => {
                 //We use to String method to grab the id which is object
@@ -18,7 +18,7 @@ describe('Reading user out of database',() => {
             });
     });
 
-    it('find a user with a particular id', ()=> {
+    it('find a user with a particular id', (done)=> {
         User.findOne({_id:joe._id})
             .then((user) => {
                 assert(user.name === 'Joe');
