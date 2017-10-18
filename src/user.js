@@ -2,7 +2,17 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const UserSchema = new schema({
-   name: String
+   name: {
+      type:String,
+       //validation that name should be longer than 2 character
+      validate: {
+         validator: (name) => name.length > 2,
+         message: 'Name must be longer than 2 characters.'
+      },
+      //to make something required
+      required:[true,'Name is required.']
+   },
+   postCount: Number
 });
 
 /*1.If there is no collection named user mongoose will create the collection
